@@ -1,0 +1,809 @@
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+
+body {
+    margin:0px;
+    padding:0px;
+    background-color:white;
+}
+
+#myTable{
+    border:2px solid black;
+    width:340px;
+    height:300px;
+    /* lebgthTable ==7
+    height==340px */
+    border-collapse:collapse;
+    backdrop-filter:blur(2px);
+    margin-top:50px;
+}
+.cells{
+     border:1px solid black;
+    
+     text-align:center;
+     color:rgba(0,0,0,0);
+    background-repeat:no-repeat;
+    background-position:7px 5px;
+    background-position:82% 0%;
+    /*background-color:rgba(240,235,230);*/
+    background-color:rgba(230,225,220,0.8);
+    
+    /* 7 && 5 for 1
+       0% 0%
+       18% 0%
+       
+       60% 0%
+       82% 0%
+    */
+    background-size:300px 240px;
+    
+}
+img{
+    display:none;
+}
+
+#box{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:120px;
+    background-color:plum;
+    overflow:hidden;
+}
+#crushLevel{
+    position:absolute;
+    top:30px;
+    left:0px;
+    width:130px;
+    height:60px;
+    background-color:magenta;
+    /*display:flex;
+    align-items:center;
+    justify-content:center;*/
+    overflow:hidden;
+    padding-top:5px;
+}
+#candyImage{
+    width:50px;
+    height:43px;
+    float:left;
+}
+#bottleLev{
+    width:26px;
+    height:43px;
+   /* transform:rotate(-15deg);*/
+    position:absolute;
+    top:0px;
+    left:63px;
+    margin-top:4px;
+    margin-left:5px;
+    float:left;
+}
+.bottleClass{
+    float:left;
+    left:0px;
+    background-color:black;
+}
+#bottle{
+    width:26px;
+    height:40px;
+    font-size:18px;
+    font-weight:500;
+    color:rgba(0,0,0,0.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    
+    position:absolute;
+    top:0px;
+    left:26px;
+}
+#targetCrush{
+    width:15px;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:500;
+    color:rgba(0,0,0,0.8);
+
+    position:absolute;
+    left:48px;
+}
+
+#movesBox{
+    position:absolute;
+    top:0px;
+    left:100px;
+    width:200px;
+    height:120px;
+    box-sizing:border-box;
+    border:25px solid black;
+    border-left:32px solid transparent;
+    border-right:32px solid transparent;
+    border-bottom:0px solid;
+    border-top:110px solid rgba(255,35,152);
+    border-radius:10px;
+    z-index:99;
+    
+}
+#moves{
+    position:absolute ;
+    top:-50px;
+    left:25px;
+    font-size:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:550;
+    z-index:99;
+    font-family:'lobster';
+}
+#progressBarBorder{
+    width:102px;
+    height:12px;
+    border:1px solid black;
+    border-radius:20px;
+    position:absolute;
+    top:32px;
+    left:7px;
+    display:block;
+}
+
+#progressBar{
+    width:0px;
+    height:10px;
+    /* height:10px */
+    border:1px solid transparent;
+    border-radius:20px;
+    background-color:yellow;
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none; background-image:url('https://i.postimg.cc/fRZnd6hy/Pics-Art-08-01-08-30-49.png');
+    background-size:100px 20px;
+    background-position:center;
+}
+#pTarget{
+    width:100px;
+    height:15px;
+    font-family:'Sofia';
+    position:absolute;
+    top:8px;
+    left:5px;
+    font-weight:600;
+    display:none;
+    font-size:13px;
+}
+
+#levelInfo{
+    position:absolute;
+    top:30px;
+    left:250px;
+    width:130px;
+    height:70px;
+    background-color:magenta;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    z-index:9;
+    font-size:18px;
+    font-weight:600;
+    font-family:'pattaya';
+}
+
+#gameStatus{
+    margin-top:35px;
+    width:300px;
+    height:250px;
+    background-color:aqua;
+    z-index:9999999999;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-evenly;
+    border:1px solid transparent;
+    border-radius:10px;
+}
+
+#islevCom{
+
+    /*margin-bottom:25px;*/
+    font-size:25px;
+    font-weight:500;
+    font-family:'Sofia';
+}
+#nextLevel{
+    background-color:navy;
+    width:100px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid black;
+    border-radius:5px;
+    color:white;
+    font-family:'Pattaya';
+    margin:5px;
+    box-shadow:2px 2px 5px black;
+    
+}
+#star{
+    font-size:35px;
+    display:flex;
+    flex-direction:row;
+    
+}
+
+#quotes{
+    position:absolute;
+    top:190px;
+    left:180px;
+    width:14px;
+    height:10px;
+    display:none;
+    align-items:center ;
+    justify-content:center ;
+}
+
+
+#quoteBox{
+    font-family:'sofia';
+    font-size:35px;
+    font-weight:800;
+    letter-spacing:3px;
+    color:yellow;
+    text-shadow:0px 0px 5px red;
+    opacity:1;
+}
+
+
+#ui{
+    width:100%;
+    height:100vh;
+    background-color:red;
+    position:absolute;
+    z-index:9999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    background-image:url('https://i.postimg.cc/fyn9LdP1/IyDj3R.jpg');
+    background-size:160% 112vh;
+}
+#play{
+    
+    top:350px;
+    left:210px;
+    width:130px;
+    height:38px;
+    background-color:magenta;
+    border:1px solid #Ff1493;
+    box-sizing:border-box;
+    border-radius:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center ;
+    font-family:'sofia';
+    font-family:'Lobster';
+    font-size:22px;
+    box-shadow:2px 2px 5px black;
+}
+
+
+#diy{
+    margin-top:15px;
+    top:260px;
+    left:210px;
+    width:155px;
+    height:38px;
+    background-color:skyBlue;
+    border:1px solid transparent;
+    box-sizing:border-box;
+    border-radius:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center ;
+    font-family:'sofia';
+    font-size:20px;
+    font-weight:500;
+    font-family:'pattaya';
+    font-family:'Lobster';
+    box-shadow:2px 2px 5px black;
+}
+h7{
+    font-weight:300;
+    font-size:18px;
+}
+
+
+#levelDiy11{
+    position:absolute;
+    width:360px;
+    height:540px;
+    z-index:9999;
+    background-color:blue;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    display:flex;
+}
+
+#setLen{
+    width:360px;
+    height:40px;
+    margin-top:10px;
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+}
+.len6{
+    width:70px;
+    height:30px;
+    background:linear-gradient(white,grey);
+    bordr:1px solid black;
+    border-radius:20px;
+    margin-left:5px;
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+    letter-spacing:2px;
+    font-family:'Alegreya Sans SC';
+}
+#isObs{
+    width:360px;
+    height:50px;
+    /*background-color:yellow;*/
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+    margin-top:12px;
+    color:black;
+   margin-left:5px;
+    font-family:'Alegreya Sans SC';
+}
+#diffiObs{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    visibility:hidden;
+    
+}
+.dif{
+    width:70px;
+    height:30px;
+   background:linear-gradient(white,grey);
+    bordr:1px solid black;
+    border-radius:20px;
+    margin-left:5px;
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+    letter-spacing:0px;
+    font-size:14px;
+    color:black;
+    font-family:'Alegreya Sans SC';
+   
+}
+#levWith{
+    width:360px;
+    height:100px;
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+.levOp{
+    width:155px;
+    height:40px;
+    background:linear-gradient(white,grey);;
+    border:1px solid black;
+    border-radius:20px;
+    margin-left:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    letter-spacing:2px;
+    font-family:'lobster';
+    font-family:'Alegreya Sans SC';
+    /*font-family:'pattaya';*/
+}
+.label{
+    width:360px;
+    height:40px;
+    display:flex;
+    padding-left:20px;
+    font-size:20px;
+    font-weight:500;
+    letter-spacing:0px;
+    margin-top:10px;
+    background-color:skyblue;
+    align-items:center;
+    font-family:'sofia';
+    font-family:'Lobster';
+    box-sizing:border-box;
+    border:8px solid aqua;
+    border-top:none;
+    border-bottom:transparent;
+}
+#start{
+    width:180px;
+    height:40px;
+    background-color:magenta;
+    border:1px solid black;
+    border-radius:20px;
+    display:flex;
+    justify-content:center ;
+     align-items:center;
+    font-family:'sofia';
+    margin-top:20px;
+    margin-bottom:15px;
+    box-shadow:1px 1px 5px black;
+    
+}
+#moveSelect{
+    width:360px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:5px;
+    font-size:18px;
+    font-weight:900;
+    color:white;
+    font-family:'pattaya';
+    font-family:'Alegreya Sans SC';
+}
+#incM{
+    width:20px;
+    height:20px;
+    background-color:red;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:3px;
+    margin-left:5px;
+}
+#decM{
+    width:20px;
+    height:20px;
+    background-color:red;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:3px;
+}
+#moveNum{
+    width:30px;
+    height:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+#diyButton{
+    background-color:#ff9900;
+    background-color:#9c51b6;
+    width:100px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid black;
+    border-radius:5px;
+    color:white;
+    font-family:'pattaya';
+    margin:5px;
+    box-shadow:2px 2px 5px black;
+}
+#goMenu{
+    background-color:#9c51b6;
+    width:100px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid black;
+    border-radius:5px;
+    color:white;
+    font-family:'pattaya';
+    margin:5px;
+    font-size:13px;
+    box-shadow:2px 2px 5px black;
+}
+#endBoxx{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+
+}
+#back{
+    width:40px;
+    height:40px;
+    border:1px solid black;
+    border-radius:100%;
+    background-color:green;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(180deg);
+    color:white;
+    font-size:20px;
+    box-shadow:-2px -2px 5px black;
+}
+/*
+#ui{
+    display:none;
+}*/
+/*
+#levelDiy11{
+    display:none;
+}*/
+#quit{
+    position:absolute;
+    bottom:50px;
+    left:18px;
+    width:30px;
+    height:30px;
+    background-color:rgba(245,0,0,0.8);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:500;
+    border:5px solid rgba(255,0,0,1);
+    box-sizing:border-box;
+    box-shadow:3px 3px 5px black;
+    font-family:'lobster';
+}
+#qMsg{
+    width:250px;
+    height:180px;
+    background-color:rgba(230,0,0);
+    position:absolute;
+    top:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:60px;
+    border-top:27px solid rgba(0,0,0,0.9);
+    border-radius:20px;
+    text-align:center;
+    flex-direction:column;
+    display:none;
+    font-family:'Sofia';
+}
+#confirm{
+    width:45px;
+    height:25px;
+    background-color:yellow;
+    border:1px solid yellow;
+    border-radius:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:500;
+    margin-top:40px;
+    font-family:'Pattaya';
+}
+
+#cancel{
+    position:absolute;
+    top:-30px;
+    left:200px;
+    width:50px;
+    height:27px;
+    font-size:25px;
+    color:aqua;
+    font-family:'Pattaya';
+}
+#levelDiy11{
+    box-sizing:border-box;
+    border:12px solid #ff48a5;
+    background-color:#ff77bc;
+    border-radius:20px;
+    z-index:9999;
+    width:100%;
+    height:100vh;
+}
+#uiImg{
+    position:absolute;
+    top:0px;
+    z-index:999999999999999;
+}
+#giftBox{
+    width:49px;
+    height:48px;
+    
+    position:absolute;
+    background-image:url('https://i.postimg.cc/hG8LdpLc/1596775419395.png');
+    background-size:50px 50px;
+    top:480px;
+    left:290px;
+    border:1px solid transparent;
+    display:flex;
+    align-items:center ;
+    justify-content:center ;
+    font-size:25px;
+    color:white;
+}
+
+#gift{
+    box-sizing:border-box;
+    border:12px solid #ff48a5;
+    background-color:#ff77bc;
+    border-radius:20px;
+    z-index:9999;
+    width:240px;
+    position:absolute;
+    height:240px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    display:none;
+    margin:auto;
+    flex-direction:column;
+    overflow:auto;
+    padding-top:10px;
+}
+.mc1{
+    background-color:skyblue;
+    box-sizing:border-box;
+    border:1px solid #ff48a5;
+    border-radius:20px;
+    width:150px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Sofia';
+    font-weight:700;
+    box-shadow:1px 1px 5px black;
+    margin-bottom:5px;
+}
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+#loading{
+    width:100%;
+    height:100vh;
+    background-color:rgba(0,0,0,0.9);
+    backdrop-filter:blur(10px);
+    z-index:9999999999999999;
+    position:absolute;
+    top:0px;
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+    left:0px;
+    flex-direction:column;
+
+}
+
+#logo{
+    width:240px;
+    height:210px;
+   /* background-color:green;*/
+    background-image:url('https://i.postimg.cc/MK9j6SMc/1596780998507.png');
+    background-size:250px 210px;
+    position:absolute;
+    top:0px;
+}
+#dSolved{
+    background-color:lightpink;
+    width:205px;
+    height:1000px;
+    border-radius:5px;
+    display:block;
+    /*font-family:'Alegreya Sans SC';*/
+    font-size:15px;
+    font-weight:600;
+    display:none;
+    padding-left:2px;
+}
+
+.head{
+    color:Navy;
+    display:block;
+    font-size:19px;
+    margin-top:4px;
+    margin-left:2px;
+    text-decoration:underline;
+    font-family:'Alegreya Sans SC'
+}
+
+.foot{
+    color:green;
+    display:block;
+    font-size:13px;
+    margin-top:5px;
+    margin-left:2px;
+    text-decoration:underline;
+    font-family:'Alegreya Sans SC';
+    text-align:center;
+}
+
+
+.msgEntry{
+    margin-bottom:5px;
+    font-size:15px;
+    font-weight:300;
+    color:white;
+}
+#LoadingText{
+    font-size:40px;
+    font-weight:900;
+    color:white;
+    margin-bottom:25px;
+}
+.animate__animated.animate__slideInDown { --animate-duration:0.3s; }
+
+#tableDiv{
+    width:100%;
+    height:100vh;
+    position:absolute ;
+    top:0;
+    background-image:url('https://i.postimg.cc/bwDp65rH/wp2347583.jpg');
+    background-size:120% 125vh;
+    z-index:-1;
+    display:flex;
+    align-items:center ;
+    justify-content:center;
+}
+#levelCompletedBox{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    display:none;
+    backdrop-filter:blur(3px);
+    z-index:999;
+}
+
+
+
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/

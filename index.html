@@ -1,0 +1,898 @@
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta name="author" content="Aryan Maurya" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="favicon.png" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <meta
+          name="description"
+          content="This is online sandy crush game build for your imporove thing skill in this domain by aryan maurya enjoy your game"
+        />
+        <meta name="keywords" content="Sandy Cruise, Cruise Adventure Game, Ocean Exploration, Sandy Beach Game, Virtual Vacation, Sea Adventure, Sandy Cruise Ship, Relaxing Game, Mobile Gaming, Tropical Exploration, Coastal Adventure, Island Discovery, Oceanic Journey">
+
+        <title>Sandy crush</title>
+     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>   
+        <link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+        <script src='https://www.gstatic.com/firebasejs/4.13.0/firebase.js'></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+    <div id='loading'>
+    <div id='LoadingText'>
+        Loading...
+    </div>
+        
+        <div class='msgEntry'>
+           Play Thousands of Levels
+        </div>
+        <hr>
+        <div class='msgEntry'>
+            Enjoy with Custom Levels
+        </div>
+    </div>
+    
+    <div id='levelDiy11'>
+    <div class='label'>Table Length </div>
+        <div id='setLen'>
+            <div onclick='len6()' class='len6'>6×6</div>
+            <div onclick='len7()' class='len6'>7×7</div>
+            <div onclick='len8()' class='len6'>8×8</div>
+        </div>
+        <div class='label'>Select Obstacle </div>
+        <div id='isObs'>
+            Obstacles :<input type='checkBox' id='checkObs' onclick='checkObs()'></input>
+            <div id='diffiObs'>
+                <div class='dif' onclick='easy()'>Easy</div>
+                <div class='dif' onclick='med()'>Medium</div>
+                <div class='dif' onclick='hard()'>Hard</div>
+            </div>
+        </div>
+        <div class='label'>Select Objects</div>
+        <div id='levWith'>
+            <div class='levOp' onclick='pointsLv()'>Points Lv.</div>
+            <div class='levOp'onclick='candyLv()'>Candy Lv.</div>
+            <div class='levOp'onclick='canLv()'>Can Lv.</div>
+            <div class='levOp'onclick='can_CandyLv()'>Candy&CanLv.</div>
+        </div>
+        <div id='moveSelect'>Moves:<div id='incM' onclick='incM()'>+</div> <input type='number' id='moveNum' value='30' onclick='moveSelect()' max='80' min='10'><div id='decM' onclick='decM()'>-</div></div>
+        <div id='start' onclick='startDIY()'class="animate__animated animate__zoomIn">
+            Play with Design
+        </div>
+        <div id='back' onclick='back()'>
+            ➜
+        </div>
+    </div>
+    
+    <div id='ui'>
+    <div id='logo'>
+        
+    </div>
+        <div id='play' onclick='play()'>
+            Play!
+        </div>
+        <div id='diy' onclick='goDiy2()'>
+            DIY-<h7>Levels</h7>
+        </div>
+        <div id='giftBox' onclick='openGift()' class="animate__animated animate__bounce" >
+            
+        </div>
+        <div id='gift' class="animate__animated animate__slideInDown">
+        <div class='mc1' id='mc'>
+            More Games
+        </div>
+                <div class='mc1' id='howto' onclick='howto()'>
+            How to Play <i class="fa fa-question-circle" style="font-size:18px"> </i>
+        </div>
+        <div class='mc1' id='dSolved'>
+     <span class='head'>Controls :</span>   
+     Swipe a candy which Match for Crush otherwise Unmatch swipe Candy getting no Crush
+    <span class='head'>Basic :</span>
+    You have to match atleast 3 Candies for Crush 
+    <span class='head'>Points Level :</span>
+    Acheive target points in given Moves
+    <span class='head'>Candy Level :</span>
+    Crush given amt. of Candies in min. Moves
+    <span class='head'>Can Level :</span>
+    Put Can on bottom of table by making matches of Candies in given Moves
+    <span class='head'>Candy&Can Level :</span>
+    Crush Candies as well as put Can on bottom of table
+    <span class='head' style='color:red'>Quit :</span>
+    You can quit from playing level by Just click on Q button 
+    <span class='foot' >Other Queries, Welcome in CommentBox !!</span>
+        </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div id="levelCompletedBox">
+    <div id='gameStatus'>
+        <div id='star'>
+        <div id='star1'>
+            &star;
+        </div>
+        <div id='star2'>
+            &star;
+        </div>
+        <div id='star3'>
+            &star;
+        </div>
+        </div>
+        <div id='islevCom'>
+            Level Completed
+        </div>
+        <div id='endBoxx'>
+        
+        <div id='diyButton' onclick='goDiy()'>
+            DIY
+        </div>
+        <div id='goMenu' onclick='goMenu()'>
+            Main Menu
+        </div>
+        <div id='nextLevel' onclick='nextLev()'>
+            Next Level
+        </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <div id='box'>
+        <div id='crushLevel'>
+            <div id='candyImage'>
+                <div id='targetCrush'>
+                
+            </div>
+            </div>
+            
+            
+            <div id='bottleLev'>
+               <div id='bottle'>
+                    
+                </div>
+           </div>
+           <div id='pTarget'>
+                Target: 180
+            </div>
+            <div id='progressBarBorder'>
+    
+                <div id='progressBar'>
+                    
+                </div>
+            </div>
+      </div>  
+             
+        
+        <div id='movesBox'>
+            <div id='moves'>
+                Moves:0
+            </div>
+        </div>
+        
+        <div id='levelInfo'>
+            <div id='levelText'>
+                Lv. 1
+            </div>
+        </div>
+    </div>
+    
+    <div id="tableDiv">
+        <table id='myTable' cellSpacing='0'></table>
+        </div>
+        
+        <div id='quit' onclick='quit()'>
+            Q
+        </div>
+        <div id='qMsg'>
+        <div id='cancel' onclick='cancel()'>
+            ×
+        </div>
+            Do you want to quit this Level and go to Menu ?
+            <div id='confirm' onclick='confirm()'>
+                Ok
+            </div>
+        </div>
+       <div id='quotes'>
+           <div id='quoteBox'>
+               Tasty
+           </div>
+       </div> 
+        
+        <img src='https://i.postimg.cc/yx2F3Bs5/special-candy-crush-combos.png' onload='isLoad()'>
+    <img src='https://i.postimg.cc/90shdLCJ/1596255138019.png' alt='Pep' onload='isLoad()'>
+    <img src='https://i.postimg.cc/fyn9LdP1/IyDj3R.jpg' id='uiImg' onload='isLoad()'>
+    <img src='https://i.postimg.cc/hG8LdpLc/1596775419395.png' onload='isLoad()'>
+    <img src='https://i.postimg.cc/MK9j6SMc/1596780998507.png' onload='isLoad()'>
+    </body>
+    <!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
+    <script>
+    
+        let table=id('myTable');
+        let row;
+        let col;
+        let randNum;
+        let lengthTable=6;
+        let cellClass=clas('cells');
+        let entities=" &nbsp;".repeat(1);//1
+        
+        setTableHeight();
+        
+        function appendTd(){
+            row=document.createElement('tr');
+            table.appendChild(row);
+            row.className='row';
+         for(let i=0;i<lengthTable;i++){
+            col=row.insertCell();
+            col.className='cells';
+            }
+            
+        }
+        
+        document.getElementById('mc').addEventListener('click',function(){ 
+       location.href='https://www.sololearn.com/Profile/16207207/?ref=app';
+  
+   });
+      
+      function putEntities(){
+          for(let i=0;i<lengthTable;i++)
+    for(let j=0;j<lengthTable;j++){
+       if(levelComTrue) table.rows[i].cells[j].innerHTML=entities;
+       else{
+           if(table.rows[i].cells[j].innerHTML!=9){
+          table.rows[i].cells[j].innerHTML=entities;     
+           }
+       }
+    }
+      }
+      
+    
+      var pepsiCount=0;
+      var pepsiPutRand=false;
+      function  putPepsi(){
+          isBottleLevel=true;
+          let randCell;
+          if(!pepsiPutRand){
+randCell=Math.floor(Math.random()*lengthTable);
+          }
+              for(let c=0;c<lengthTable;c++){
+    if(pepsiPutRand){ 
+    if(table.rows[0].cells[c].innerHTML==0||table.rows[0].cells[c].innerHTML==1&&pepsiCount<3){
+              pepsiCount++;
+ table.rows[0].cells[c].innerHTML=8
+ isPepsi=pepsiCount;
+ 
+                }
+            }
+          }    
+        if(pepsiPutRand)
+          if(pepsiCount==0){
+              setTimeout(function(){
+ table.rows[0].cells[1].innerHTML=8;
+ pepsiCount++;
+ //isPepsi=pepsiCount;
+ bottleDrop=pepsiCount;
+ bottle_Level();
+ 
+ putImages();
+  },100);
+          }
+        
+    if(!pepsiPutRand){
+
+         pepsiCount++;
+ table.rows[0].cells[randCell].innerHTML=8
+ isPepsi=pepsiCount;
+        
+    }
+        
+          putImages();
+          bottleDrop=pepsiCount;
+         
+          bottle_Level()
+      }  
+
+    let max=lengthTable;
+    let min=1;
+    let rowDec=1;
+    let cellInc=0;
+ //let obstaclesLev=[[],[],[],[]];
+    function obstacles(){
+    
+    let randObs=Math.floor(Math.random()*(max-min)+min);
+    
+    let  colObs=[];
+    let rowObs=[];
+    for(let i=0;i<lengthTable;i++){
+    colObs[i]=-1;
+    rowObs[i]=-1;
+    }
+    for(let i=0;i<randObs+cellInc;i++){
+    let index=Math.floor(Math.random()*(lengthTable-1));
+    colObs[index]=index;
+    if(i<(randObs-rowDec)){
+    let index1=Math.floor(Math.random()*((lengthTable-1)-2)+2);
+        
+        rowObs[index1]=index1;
+        }
+    }
+   // console.log(rowObs+' GAP '+colObs);
+        for(let r=0;r<lengthTable;r++){
+            for(let c=0;c<lengthTable;c++){
+                if((r==rowObs[r])&&(c==colObs[c])){
+                    table.rows[r].cells[c].innerHTML=9;
+table.rows[r].cells[c].style.border='none';              
+                }
+                /*else if(r==3&&c==3){
+                    table.rows[r].cells[c].innerHTML=9;
+                }*/
+                putImages();
+            }
+        }
+    }
+        
+     //  obstacles();
+        
+        let candyEnd;
+        let correctPut=[];
+        let first=1;
+        function putCandyOnTop(){
+            
+          for(let i=0;i<lengthTable;i++){
+         if(table.rows[0].cells[i].innerHTML==entities){ randNum=Math.floor(Math.random()*5);
+          correctPut.push(randNum);
+        
+          if(correctPut.length==2){
+              if(correctPut[0]!=correctPut[1])
+              correctPut.shift();
+          }
+          else if(correctPut.length==3){
+              if(correctPut[1]==correctPut[2]){
+              if(randNum!=4){
+                  randNum+=1;}
+                  
+              else
+                  randNum-=1;
+              }
+              correctPut=[];
+          } table.rows[0].cells[i].innerHTML=randNum;
+           putImages();
+           }
+
+          }
+        }
+        
+        
+        
+        correctPut=[];
+        let r=0;
+        let row1=0;
+    
+        function putCandy(){
+   for(;r>-1;r--){
+        for(let j=0;j<lengthTable;j++){
+      if(table.rows[r+1].cells[j].innerHTML==entities&&table.rows[r].cells[j].innerHTML!=9){ numCell1=table.rows[r].cells[j].innerHTML;
+        table.rows[r+1].cells[j].innerHTML=numCell1;
+       table.rows[r].cells[j].innerHTML=entities;
+       }
+       else
+       candyFromObstacle(r,j);
+       
+     }
+     
+    }
+    
+           putCandyOnTop();
+            row1++;
+            r=row1;
+            if(row1==lengthTable-1){
+            clearInterval(candyEnd);
+            //console.log(correctPut)
+           
+            autoDetect();
+            autoDetectRow();
+            if(isBottleLevel)
+            putPepsi();
+            
+            if(first){
+            touchMove();
+            }
+            }
+        }
+        
+      // setLevel(); 
+        
+        let y=0;
+        let x=0;
+        let swipe='';
+        let touchX=0;
+        let touchY=0;
+        
+        function touchMove(){
+        for(let i=0;i<lengthTable;i++)
+           for(let j=0;j<lengthTable;j++){ 
+   if(table.rows[i].cells[j].innerHTML!=9){        
+           table.rows[i].cells[j].addEventListener('touchstart',function(e){
+           
+               
+           
+          touchX=e.touches[0].clientX;
+          touchY=e.touches[0].clientY;
+         // r1=i; c1=j;
+           });
+           
+      table.rows[i].cells[j].addEventListener('touchend',function(e){
+      x= e.changedTouches[0].clientX;
+      y=e.changedTouches[0].clientY;
+    
+      if(Math.abs(touchX-x)>20){
+           if((touchX-x)<0){
+           if(j!=lengthTable-1)
+               swipe='R';
+           else
+               swipe='';
+           }
+           else{
+           if(j!=0)
+            swipe='L';
+           else
+            swipe=''; 
+            }
+        }
+   else{
+        if(touchY-y<0){
+        if(i<lengthTable-1)
+        swipe='D';
+        else swipe='';
+        }
+        else{
+        if(i!=0){
+        swipe='U';
+        
+        }
+        else {swipe='';
+        }
+        }
+    }
+    
+       swipeCandy(i,j)
+           
+           });
+           }
+           }
+        }
+        
+        
+        
+        var candyDirec=0;
+        var canRow=0;
+        let r12=0;
+        let c12=0;
+        var touchCandy;
+        
+        function swipeCandy(r1,c1){
+            if(swipe=='R'){
+            candyDirec=1;
+            canRow=0;
+            }
+            else if(swipe=='L'){
+            candyDirec=-1;
+            canRow=0;
+            }
+            else if(swipe=='D'){
+                canRow=1;
+                candyDirec=0;
+            }
+            else if(swipe=='U'){
+            
+                canRow=-1;
+                candyDirec=0;
+            }
+            else{
+                canRow=0;
+                candyDirec=0;
+            }
+           if(table.rows[r1+canRow].cells[c1+candyDirec].innerHTML!=9){ touchCandy=table.rows[r1].cells[c1].innerHTML;
+       table.rows[r1].cells[c1].innerHTML=table.rows[r1+canRow].cells[c1+candyDirec].innerHTML;
+                table.rows[r1+canRow].cells[c1+candyDirec].innerHTML=touchCandy;
+            r12=r1+canRow;
+            c12=c1+candyDirec;
+        
+           putImages();      
+              setTimeout(function(){ candyMatch(r12,c12);},80);//80
+              }
+              
+        }
+    
+    
+        function candyMatch(r,c){
+        
+       let i=r;
+       //console.log(i+'First')
+       if(swipe!='')
+       matchFinish=0;
+       
+       let j=c;
+       let j1=c;
+       let i1=r;
+       let rCandiesT=0;
+       let rCandiesT2=0;
+       let isMatch123=false;
+       
+       /* Right Matching */
+       for(let x=c;x<lengthTable-1;x=c){ 
+      j++;
+      if(j!=lengthTable&&table.rows[i].cells[j].innerHTML==touchCandy&&touchCandy!=8){
+      rCandiesT++;
+      }
+    else if(j==lengthTable)
+    break;
+    else
+      break;
+         }
+         /* Left Matching */
+
+        j=c;
+         for(let x=c;x<lengthTable;x=c){
+       
+      j--;
+      if(j!=-1&&table.rows[i].cells[j].innerHTML==touchCandy&&touchCandy!=8){
+      rCandiesT++;
+
+      }
+    else if(j==lengthTable-1)
+    break;
+    else
+      break;
+         }
+         
+         /* Down Macthing */
+         for(let x=c;x<lengthTable;x=c){
+       
+      i1++;
+     
+      if(i1!=lengthTable&&table.rows[i1].cells[j1].innerHTML==touchCandy&&touchCandy!=8){
+      rCandiesT2++;
+      }
+    else if(i1==lengthTable)
+    break;
+    else
+      break;
+         }
+         
+         
+        /* Up Matching */
+        i1=r;
+        for(let x=c;x<lengthTable;x=c){
+       
+      i1--;
+      if(i1!=-1&&table.rows[i1].cells[j1].innerHTML==touchCandy&&touchCandy!=8){
+      rCandiesT2++;
+    
+      }
+    else if(i1==-1)
+    break;
+    else
+      break;
+         }
+        
+         /*. .... . ...... . */
+        if(rCandiesT2>1){
+         i1+=1;
+        isMatch123=true;
+      
+             for(let x=0;x<=rCandiesT2;x++){
+             table.rows[i1].cells[j1].innerHTML=entities;
+            
+             i1++;
+             points+=4;            if(touch_Candy>-1)
+             isCandyCrushLevelOn(touchCandy);
+else if(pointsLevel){
+    increLevelBar(points);   
+   // console.log(points)     
+             }
+         }
+
+         putImages();
+         setTimeout(function(){spaceEmpty2(i1-rCandiesT2-2,j1,i1-1)},150);
+         }
+         
+         /*..... .. .... ....... . */
+         if(rCandiesT>1){
+         i=r;j+=1;
+         isMatch123=true;
+         for(let x=0;x<=rCandiesT;x++){
+             table.rows[i].cells[j].innerHTML=entities;
+             j++;
+             points+=4;
+             if(touch_Candy>-1)
+             isCandyCrushLevelOn(touchCandy);
+             else if(pointsLevel)
+         increLevelBar(points);
+         //console.log(points)
+         }
+         
+         putImages();
+         setTimeout(function(){spaceEmpty(i,j)},150);
+       /* setTimeout(function(){spaceEmpty3(i-1,j-rCandiesT-1,j);},150);*/
+         }
+        /*... . +&7 . ... .. */
+        if(isMatch123&&swipe!=''){
+            moves++;
+   id('moves').innerHTML='Moves '+Math.abs(targetmoves-moves);
+   if(pointsLevel){
+   if(Math.abs(targetmoves-moves)==0&& points<pointsTarget){
+   setTimeout(movesEnd,500);
+   
+   }}
+   else if(!pointsLevel){
+   if(Math.abs(targetmoves-moves)==0)
+       setTimeout(movesEnd,500);
+    
+   }
+        }
+        
+         if(!isMatch123&&swipe!=''){
+             setTimeout(function(){reverseCandy(r,c)},90);
+             //console.log(reverseCandy.caller);
+             isMatch123=false;
+         }
+         isMatch123=false;
+        }
+        
+        
+        function reverseCandy(r1,c1){
+           //console.log(canRow,candyDirec,r1,c1);
+            touchCandy=table.rows[r1].cells[c1].innerHTML;
+     table.rows[r1].cells[c1].innerHTML=table.rows[r1-canRow].cells[c1-candyDirec].innerHTML;
+                table.rows[r1-canRow].cells[c1-candyDirec].innerHTML=touchCandy;
+                putImages();
+        }
+        
+        
+       var x1;
+        var isRowblock=[];
+        
+        function spaceEmpty(r,c){
+        for(let i=0;i<lengthTable;i++)
+        isRowblock[i]=-1;
+        correctPut=[];
+        if(r>0){
+       for(let x1=r;x1>0;x1--)
+         for(let i=0;i<lengthTable;i++){
+         if(isRowblock[i]==i)
+             continue;
+
+if(table.rows[x1-1].cells[i].innerHTML!=entities&&table.rows[x1-1].cells[i].innerHTML!=9&&table.rows[x1].cells[i].innerHTML==entities){
+    let candy12=table.rows[x1-1].cells[i].innerHTML;
+    table.rows[x1-1].cells[i].innerHTML=entities;
+   table.rows[x1].cells[i].innerHTML=candy12;
+    }
+    else if(table.rows[x1-1].cells[i].innerHTML==9){
+         isRowblock[i]=i;
+         candyFromObstacle(x1-1,i);
+    }
+}
+            }
+            
+            
+            
+            for(let i=0;i<lengthTable;i++){
+               if(table.rows[0].cells[i].innerHTML==entities){
+                   putCandyOnTop();
+                   
+               }
+            }
+    
+    setTimeout(autoDetectRow,200);
+    if(isBottleLevel)
+    setTimeout(isPepsiReach,100);
+        }
+        
+        
+        
+        function spaceEmpty2(r,c,rT){
+        //console.log(r,rT);
+        correctPut=[];
+        if(r<0){
+            putCandyOnTop();
+            r++;
+        }
+        if(r>-1){
+    
+    for(let x1=r;x1<rT-1;x1=r++)
+       for(let x1=r;x1>-1&&x1<lengthTable-1;x1--){
+        
+  if(table.rows[x1].cells[c].innerHTML==entities&&x1==0){
+      putCandyOnTop();
+  }
+else if(table.rows[x1].cells[c].innerHTML==9){
+    candyFromObstacle(x1,c);
+    break;
+   
+}
+  else{
+    let candy12=table.rows[x1].cells[c].innerHTML;
+    table.rows[x1].cells[c].innerHTML=entities;
+   table.rows[x1+1].cells[c].innerHTML=candy12;
+  // console.log(c)
+  }
+ if(x1==0) if(table.rows[x1].cells[c].innerHTML==entities){
+      putCandyOnTop();
+    
+  }
+ 
+}
+            }
+ 
+ setTimeout(autoDetectRow,200);
+ if(isBottleLevel)
+ setTimeout(isPepsiReach,100);
+            
+        }
+        
+     /* Images */   
+        
+        function putImages(){
+        
+            for(let x=0;x<lengthTable;x++){
+                for(let y=0;y<lengthTable;y++){
+                    if(table.rows[x].cells[y].innerHTML==0){
+    table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/yx2F3Bs5/special-candy-crush-combos.png")';         
+     if(lengthTable==7){table.rows[x].cells[y].style.backgroundPosition='0% -2%'; table.rows[x].cells[y].style.backgroundSize='300px 210px';  }
+     else if(lengthTable==6) {table.rows[x].cells[y].style.backgroundPosition='-2% -3%'; table.rows[x].cells[y].style.backgroundSize='300px 240px';  }
+     else {table.rows[x].cells[y].style.backgroundPosition='0% -2%'; table.rows[x].cells[y].style.backgroundSize='265px 200px';  
+                    }
+     
+                    }
+      
+else if(table.rows[x].cells[y].innerHTML==1){
+     table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/yx2F3Bs5/special-candy-crush-combos.png")';  
+     if(lengthTable==6){ table.rows[x].cells[y].style.backgroundPosition='19% -2%';
+     table.rows[x].cells[y].style.backgroundSize='300px 240px';  
+     }
+    else if(lengthTable==7){ table.rows[x].cells[y].style.backgroundPosition='20% -2%';
+     table.rows[x].cells[y].style.backgroundSize='300px 210px';  
+     }
+     else
+   { table.rows[x].cells[y].style.backgroundPosition='21% -2%';
+     table.rows[x].cells[y].style.backgroundSize='280px 200px';  
+     }
+                    }
+else if(table.rows[x].cells[y].innerHTML==2){
+             table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/yx2F3Bs5/special-candy-crush-combos.png")';
+            if(lengthTable==6){        table.rows[x].cells[y].style.backgroundPosition='61% -3%';
+                 table.rows[x].cells[y].style.backgroundSize='300px 240px'; }
+        else if(lengthTable==7){ table.rows[x].cells[y].style.backgroundPosition='61% -2%';
+     table.rows[x].cells[y].style.backgroundSize='300px 210px';  
+     } 
+     else { table.rows[x].cells[y].style.backgroundPosition='61% -2%';
+     table.rows[x].cells[y].style.backgroundSize='300px 210px';  
+     }       
+                         
+                    }
+else if(table.rows[x].cells[y].innerHTML==3){
+             table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/yx2F3Bs5/special-candy-crush-combos.png")';   
+           if(lengthTable==6){ table.rows[x].cells[y].style.backgroundPosition='82% -1%';
+            table.rows[x].cells[y].style.backgroundSize='300px 240px';   }    
+         else if(lengthTable==7){ table.rows[x].cells[y].style.backgroundPosition='81% -1%';
+     table.rows[x].cells[y].style.backgroundSize='300px 212px';  
+     }
+       else
+       { table.rows[x].cells[y].style.backgroundPosition='81% -2%';
+     table.rows[x].cells[y].style.backgroundSize='260px 205px';  
+     }
+                
+                    }
+else if(table.rows[x].cells[y].innerHTML==4){
+             table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/V6pBPFyq/Pics-Art-07-31-03-15-20.png")';      
+            if(lengthTable==6){ table.rows[x].cells[y].style.backgroundPosition='center';
+       table.rows[x].cells[y].style.backgroundSize='45px 45px';  }
+      else if(lengthTable==7){ table.rows[x].cells[y].style.backgroundPosition='center';
+     table.rows[x].cells[y].style.backgroundSize='40px 40px';  
+     }
+     else { table.rows[x].cells[y].style.backgroundPosition='center';
+     table.rows[x].cells[y].style.backgroundSize='35px 35px';  
+     }         
+     
+                    }     
+else if(table.rows[x].cells[y].innerHTML==8){
+          table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/90shdLCJ/1596255138019.png")';      
+         if(lengthTable==8){ table.rows[x].cells[y].style.backgroundPosition='center';
+       table.rows[x].cells[y].style.backgroundSize='22px 36px';}
+       else if(lengthTable==7){ table.rows[x].cells[y].style.backgroundPosition='center';
+       table.rows[x].cells[y].style.backgroundSize='24px 38px';}
+       else { table.rows[x].cells[y].style.backgroundPosition='center';
+       table.rows[x].cells[y].style.backgroundSize='26px 40px';}
+      }
+      else if(table.rows[x].cells[y].innerHTML==9){
+         table.rows[x].cells[y].style.backgroundColor='transparent';
+     table.rows[x].cells[y].style.backgroundImage='none';
+    
+      }                             
+                
+    else{
+/*        table.rows[x].cells[y].style.backgroundImage='url("https://i.postimg.cc/9032Rv5r/Z9pp.gif")'; 
+        table.rows[x].cells[y].style.backgroundPosition='center';
+       table.rows[x].cells[y].style.backgroundSize='105px 105px';  */
+       table.rows[x].cells[y].style.backgroundImage='none';
+    }
+                }
+            }
+        }
+      var isPepsi=pepsiCount;
+      function isPepsiReach(){
+          for(let c=0;c<lengthTable;c++){
+              if(table.rows[lengthTable-1].cells[c].innerHTML==8){
+                  pepsiCount--;
+                  bottleDrop--;
+                  bottle_Level();
+table.rows[lengthTable-1].cells[c].innerHTML=entities;
+setTimeout(function(){
+spaceEmpty3(lengthTable-2,c,c+1);},150);
+            if(pepsiCount==0){
+                 levOk++;
+              }
+            setTimeout(isLevCom,1000);
+              }
+              
+              
+          }
+      }
+    
+        
+        
+        
+    </script>
+</html>
+
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
