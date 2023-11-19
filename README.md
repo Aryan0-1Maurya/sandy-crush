@@ -4,7 +4,7 @@ Embark on a sweet and sandy adventure with Sandy Crush, a delightful matching ga
 
 ## Play the Game
 
-[Play Now](https://your-username.github.io/sandy-crush/) 🕹️
+[Play Now](https://aryan0-1maurya.github.io/sandy-crush/) 🕹️
 
 ## About the Game
 
